@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Reflection;
@@ -435,6 +436,24 @@ namespace RitsukageGif
             return Path.Combine(Path.GetTempPath(),
                     string.Join(string.Empty, Guid.NewGuid().ToByteArray().Select(x => x.ToString("X2"))) + ext)
                 .Replace('\\', '/');
+        }
+
+        private void Continue_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void ScreenToGif_Click(object sender, RoutedEventArgs e)
+        {
+            if (_currentGifPath != null)
+            {
+                var filePath = Path.Combine(Path.GetTempPath(), "rs2f.gif");
+                try
+                {
+                    File.Copy(_currentGifPath, filePath);
+                    Process.Start(new ProcessStartInfo("screentogif", filePath));
+                } catch  { }
+            }
         }
     }
 }

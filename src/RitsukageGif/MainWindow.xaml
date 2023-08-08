@@ -111,5 +111,7 @@
                    FontSize="14" Foreground="Red" FontWeight="Bold"
                    Content="●正在对录制的GIF进行编码..." />
         </Grid>
+        <Button Content="继续" HorizontalAlignment="Left" Margin="80,156,0,0" VerticalAlignment="Top" Click="Continue_Click"/>
+        <Button Content="ScreenToGif Edit" HorizontalAlignment="Left" Margin="80,201,0,0" VerticalAlignment="Top" Click="ScreenToGif_Click"/>
     </Grid>
 </Window>
